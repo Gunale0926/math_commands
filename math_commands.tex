@@ -28,8 +28,15 @@
 % Highlight a newly defined term
 \newcommand{\newterm}[1]{{\bf #1}}
 
-\def\ov#1{\overrightarrow{#1}}
+% Unit Vectors
 \def\uv#1{\hat{#1}}
+
+% Norms
+\def\nm#1{\|#1\|}
+\def\nmf#1{\|#1\|_F}
+
+% For Physics
+\def\deg{^{\circ}}
 
 % Figure reference, lower-case.
 \def\figref#1{figure~\ref{#1}}
@@ -253,6 +260,8 @@
 \def\vx{{\bm{x}}}
 \def\vy{{\bm{y}}}
 \def\vz{{\bm{z}}}
+
+% Vectors using overrightarrow
 
 % Elements of vectors
 \def\evalpha{{\alpha}}
@@ -520,3 +529,15 @@
 \DeclareMathOperator{\sign}{sign}
 \DeclareMathOperator{\Tr}{Tr}
 \let\ab\allowbreak
+
+% TikZ
+
+\usepackage{tikz}
+
+\tikzset{
+    carc/.style args={#1:#2:#3:#4:#5}{
+        insert path={
+            ({#1 + #5*cos(#3)}, {#2 + #5*sin(#3)}) arc (#3:#4:#5)
+        }
+    }
+}
